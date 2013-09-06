@@ -1,6 +1,12 @@
 .clearWrap {
 clear:both;
 }
+
+.tratamiento a {
+	text-decoration:none;
+	color:white !important;
+}
+
 .section {
 	padding: 7% 0;
 	width: 100%;
@@ -130,7 +136,7 @@ h2 {
 	letter-spacing:2px;
 	text-transform:uppercase;
 	text-align:center;
-	line-height:25px;
+	line-height:32px;
 }
 
 h3 {
