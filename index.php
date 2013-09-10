@@ -6,17 +6,11 @@
 		<meta name="author" content="Myriam Arra">
 		<meta name="robots" content="index, follow">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.capty.min.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
-		<script type="text/javascript" src="js/mosaic.1.0.1.js"></script>
-		<script type="text/javascript">
-			jQuery(function($) {
-				$('.fade').mosaic();
-			});
-		</script>
-
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
 		<title>Titulo</title>
 		<link rel="stylesheet" href="css/layout.css" type="text/css">
 		<link href="images/favicon_applove.ico" rel="shortcut icon" type="image/x-icon">
@@ -26,7 +20,8 @@
 		<?
 		include ('header.php');
 		?>
-
+		<div id="sidePage"></div>
+		<div id="maindiv">
 		<div class="section blue" id="home">
 			<div class="container">
 				<div class="inner">
@@ -77,28 +72,24 @@
 
 				<div id="tratamientos_info">
 
-					<div class="tratamiento">
-						<a href="Tratamientos/faciales.php"> <img src="images/faciales.png" alt="faciales">
+					<div class="tratamiento" id="tratfacial">
+						<img src="images/faciales.png" alt="faciales">
 						<br>
 						<br>
-						<h4>Faciales</h4> </a>
+						<h4>Faciales</h4> 
 					</div>
 
-					<div class="tratamiento">
-						<a href="Tratamientos/corporales.php">
+					<div class="tratamiento" id="tratcorporal">
 						<img src="images/corporales.png" alt="corporales">
 						<br>
 						<br>
 						<h4>Corporales</h4>
-						</a>
 					</div>
-					<div class="tratamiento">
-						<a href="Tratamientos/hombre.php">
+					<div class="tratamiento" id="trathombre">
 						<img src="images/man.png" alt="Imagen3">
 						<br>
 						<br>
 						<h4>Hombre</h4>
-						</a>
 					</div>
 					<div class="clearWrap"></div>
 				</div>
@@ -127,8 +118,38 @@
 				</div>
 			</div>
 		</div>
+		
+	</div> <!--maindiv-->
 		<?
 			include ('footer.php');
 		?>
+		
+		
+		<script>
+		var lastpos = 0;
+		$("#tratfacial").click(function() {
+		  loadSidePage("Tratamientos/faciales.php");
+		});
+		$("#tratcorporal").click(function() {
+		  loadSidePage("Tratamientos/corporales.php");
+		});
+		$("#trathombre").click(function() {
+		  loadSidePage("Tratamientos/hombre.php");
+		});
+		function loadSidePage(page) {
+		  $("#sidePage").load(page, function() {
+		    $("#backArrow").hide();
+		    $("#sidePage").css("top",window.pageYOffset);
+		    lastpos=window.pageYOffset;
+		    $("#sidePage").show('slide', {direction: 'right'}, function() {
+		      $("#maindiv").hide();
+		      window.scrollTo(0, 0);
+		      $("#sidePage").css("top",0);
+		      $("#backArrow").show();
+		      $("#top_wrapper").hide('slide', {direction: 'up'});
+		    });
+		  });
+		}
+		</script>
 	</body>
 </html>
