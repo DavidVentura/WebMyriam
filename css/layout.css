@@ -3,14 +3,19 @@
 }
 #backArrow {
   position:fixed;
-  left:0px;
+  left:5%;
   top:10px;
+  transition:opacity 1s linear;
+  cursor: pointer;
 }
 #sidePage {
   position:absolute;
   left:0px;
   top:0px;
   z-index:2;
+}
+.dtratamiento h4 {
+  cursor: pointer;
 }
 .clearWrap {
 clear:both;
@@ -302,10 +307,12 @@ h4 {
 	padding:0;
 }
 #start_image {
-	width:900px;
 	margin:auto;
 }
-
+#start_image img {
+    display:block;
+    margin:0px auto;
+}
 .right {
 	text-align: right;
 }

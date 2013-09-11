@@ -5,8 +5,6 @@
 			<li><a href="#productos">Productos</a></li><li><a href="#gift_card">Regala belleza</a></li><li><a href="#">Blog</a></li><li><a href="#">Diagnostico de piel</a></li>	
 		    </ul>
 	    	</div>
-	    <div class="container" id="logo"> 
-	    <div class="logo"></div>
 	    </div>   	    	    
     </div>
     </div>

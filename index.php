@@ -25,9 +25,9 @@
 		<div class="section blue" id="home">
 			<div class="container">
 				<div class="inner">
-					<h2>Buenos Aires Estetica</h2>
 					<div id="start_image">
-						<img src="images/logo.png" alt="Logo">
+					<img src="images/logo.png" alt="Logo">
+					<img src="images/TITULO.png" alt="BUENOS AIRES ESTETICA">
 					</div>
 					<h3>CUIDADO EXPERTO DE TU PIEL</h3>
 					<h4 class="right">Tu tratamiento, tu experiencia...</h4>
@@ -138,14 +138,16 @@
 		});
 		function loadSidePage(page) {
 		  $("#sidePage").load(page, function() {
-		    $("#backArrow").hide();
+		    $("#backArrow").css("opacity",0);
 		    $("#sidePage").css("top",window.pageYOffset);
+		    $("#sidePage").css("width",$(window).width());
+		    $("#bottom_wrapper").hide();
 		    lastpos=window.pageYOffset;
-		    $("#sidePage").show('slide', {direction: 'right'}, function() {
+		    $("#sidePage").show('slide', {direction: 'right'}, 1000, function() {
 		      $("#maindiv").hide();
 		      window.scrollTo(0, 0);
 		      $("#sidePage").css("top",0);
-		      $("#backArrow").show();
+		      $("#backArrow").css("opacity",1);
 		      $("#top_wrapper").hide('slide', {direction: 'up'});
 		    });
 		  });
